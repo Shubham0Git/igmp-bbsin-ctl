@@ -77,6 +77,11 @@ message Response {
     string message = 2;
 }
 
+message IgmpRequest {
+	ONURequest OnuReq = 1;
+	string SubActionVal = 2;
+}
+
 message Empty {}
 
 service BBSim {
@@ -89,4 +94,5 @@ service BBSim {
     rpc PoweronONU (ONURequest) returns (Response) {}
     rpc RestartEapol (ONURequest) returns (Response) {}
     rpc RestartDhcp (ONURequest) returns (Response) {}
+    rpc ChangeIgmpState (IgmpRequest) returns (Response) {}
 }
